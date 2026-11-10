@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Telegram → GeminiNotebook (локально)</title>
+  <meta name="description" content="Локальный конвертер экспорта Telegram в .md файлы для Google GeminiNotebook">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+</head>
+<body>
+  <!-- Спрайт иконок -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></symbol>
+  </svg>
+
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="glow-orb orb-1" aria-hidden="true"></div>
+  <div class="glow-orb orb-2" aria-hidden="true"></div>
+
+  <main class="shell">
+    <div class="wrap">
+
+      <header class="page-header">
+        <div class="toolbar">
+          <div class="badge">
+            <span class="dot"></span>
+            <span data-i18n="badge.text">Локальная обработка · без интернета</span>
+          </div>
+
+          <div class="toolbar-actions">
+            <button id="theme-toggle" class="icon-btn" type="button" data-i18n-aria="theme.aria" aria-label="Сменить тему">
+              <svg class="icon theme-icon-sun"><use href="#i-sun"/></svg>
+              <svg class="icon theme-icon-moon"><use href="#i-moon"/></svg>
+            </button>
+
+            <div class="lang-switch">
+              <button id="lang-toggle" class="icon-btn lang-btn" type="button" data-i18n-aria="lang.aria" aria-haspopup="listbox" aria-expanded="false" aria-label="Сменить язык">
+                <svg class="icon"><use href="#i-globe"/></svg>
+                <span id="lang-code">RU</span>
+              </button>
+              <div id="lang-menu" class="lang-menu hidden" role="listbox">
+                <button class="lang-option" type="button" role="option" data-locale="ru">Русский</button>
+                <button class="lang-option" type="button" role="option" data-locale="en">English</button>
+                <button class="lang-option" type="button" role="option" data-locale="uk">Українська</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h1 class="title"><span>Telegram</span><span class="accent"> → </span><span>GeminiNotebook</span></h1>
+        <p class="subtitle">
+          <span data-i18n="subtitle.before">Конвертируйте экспорт чата в</span>
+          <span class="code-tag">.md</span>
+          <span data-i18n="subtitle.after">файлы для Google GeminiNotebook</span>
+        </p>
+      </header>
+
+      <section class="glass-card card">
+
+        <!-- Шаг 1: файл -->
+        <div id="dropzone" class="dropzone">
+          <input type="file" id="file-input" accept=".json,application/json" data-i18n-aria="file.aria" aria-label="Выберите файл result.json">
+          <div class="dropzone-inner">
+            <div class="dropzone-icon">
+              <svg class="icon icon-lg"><use href="#i-folder" id="dropzone-icon"/></svg>
+            </div>
+            <div id="dropzone-empty" class="dropzone-hint">
+              <p>
+                <span data-i18n="drop.hint.before">Перетащите</span>
+                <span class="code-tag">result.json</span>
+                <span data-i18n="drop.hint.after">сюда</span>
+              </p>
+              <p class="muted" data-i18n="drop.hintSub">или нажмите для выбора файла</p>
+            </div>
+            <div id="dropzone-file" class="dropzone-hint hidden">
+              <p class="file-name" id="file-name"></p>
+              <p class="mono muted" id="file-size"></p>
+            </div>
+            <p class="muted tiny" data-i18n="drop.source">Telegram Desktop → Экспорт чата → JSON</p>
+          </div>
+        </div>
+
+        <!-- Ошибка -->
+        <div id="error-box" class="error-box hidden" role="alert">
+          <svg class="icon error-icon"><use href="#i-alert"/></svg>
+          <p class="error-text" id="error-text"></p>
+          <button id="error-close" class="icon-btn error-close" type="button" data-i18n-aria="error.close" aria-label="Закрыть сообщение">
+            <svg class="icon"><use href="#i-x"/></svg>
+          </button>
+        </div>
+
+        <!-- Шаг 2: настройки -->
+        <div class="settings">
+          <div class="settings-title">
+            <svg class="icon"><use href="#i-sliders"/></svg>
+            <span data-i18n="settings.title">Настройки</span>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label class="field-label" for="word-limit" data-i18n="settings.words">Слов в файле</label>
+              <select id="word-limit" class="input-field">
+                <option value="50000">50 000</option>
+                <option value="100000">100 000</option>
+                <option value="150000">150 000</option>
+                <option value="200000">200 000</option>
+                <option value="250000">250 000</option>
+                <option value="300000">300 000</option>
+                <option value="350000">350 000</option>
+                <option value="400000">400 000</option>
+                <option value="450000">450 000</option>
+                <option value="500000">500 000</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field-label" for="date-format" data-i18n="settings.dateFormat">Формат даты</label>
+              <select id="date-format" class="input-field">
+                <option value="DD.MM.YYYY">14.02.2020</option>
+                <option value="YYYY-MM-DD">2020-02-14</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="checks">
+            <label class="check">
+              <input type="checkbox" id="opt-timestamp" class="checkbox-custom" checked>
+              <span data-i18n="opt.timestamp">Дата и время</span>
+            </label>
+            <label class="check">
+              <input type="checkbox" id="opt-author" class="checkbox-custom" checked>
+              <span data-i18n="opt.author">Имя автора</span>
+            </label>
+            <label class="check">
+              <input type="checkbox" id="opt-reactions" class="checkbox-custom" checked>
+              <span data-i18n="opt.reactions">Реакции</span>
+            </label>
+            <label class="check">
+              <input type="checkbox" id="opt-polls" class="checkbox-custom" checked>
+              <span data-i18n="opt.polls">Опросы</span>
+            </label>
+            <label class="check">
+              <input type="checkbox" id="opt-forwarded" class="checkbox-custom" checked>
+              <span data-i18n="opt.forwarded">Пересланные</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Прогресс -->
+        <div id="progress" class="progress hidden">
+          <div class="progress-head">
+            <span id="progress-message">Обработка…</span>
+            <span class="mono accent" id="progress-percent">0%</span>
+          </div>
+          <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+        </div>
+
+        <!-- Шаг 3: конвертация -->
+        <button id="convert" class="btn btn-accent btn-block btn-lg" type="button" disabled>
+          <svg class="icon" id="convert-icon"><use href="#i-zap"/></svg>
+          <span data-i18n="btn.convert">Конвертировать</span>
+        </button>
+
+        <!-- Результат -->
+        <div id="result" class="result hidden">
+          <div class="result-head">
+            <div class="result-icon"><svg class="icon icon-lg"><use href="#i-check"/></svg></div>
+            <h2 data-i18n="result.title">Конвертация завершена</h2>
+          </div>
+
+          <div class="result-chat">
+            <p id="result-chat-name"></p>
+          </div>
+
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-value accent" id="stat-messages">0</div>
+              <div class="stat-label" data-i18n="stat.messages">сообщений</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="stat-skipped">0</div>
+              <div class="stat-label" data-i18n="stat.skipped">пропущено</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value success" id="stat-files">0</div>
+              <div class="stat-label" data-i18n="stat.files">файлов .md</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value" id="stat-words">0</div>
+              <div class="stat-label" data-i18n="stat.words">слов</div>
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <button id="download-zip" class="btn btn-accent" type="button">
+              <svg class="icon"><use href="#i-download"/></svg>
+              <span data-i18n="btn.download">Скачать ZIP</span>
+            </button>
+            <button id="reset" class="btn btn-secondary" type="button">
+              <svg class="icon"><use href="#i-refresh"/></svg>
+              <span data-i18n="btn.reset">Ещё файл</span>
+            </button>
+          </div>
+
+          <details id="preview-details" class="preview-box">
+            <summary data-i18n="result.preview">Превью первого файла</summary>
+            <pre id="preview-text" class="preview-text"></pre>
+          </details>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <p class="footer-line">
+          <svg class="icon"><use href="#i-lock"/></svg>
+          <span data-i18n="footer.privacy">Все данные обрабатываются локально — файл никуда не отправляется</span>
+        </p>
+        <p class="mono tiny muted">node bin/tg2md.js result.json -o output</p>
+      </footer>
+    </div>
+  </main>
+
+  <script src="../src/core.js"></script>
+  <script src="../src/zip.js"></script>
+  <script src="../src/i18n.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

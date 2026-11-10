@@ -1,0 +1,35 @@
+# Dependencies and local Python environments
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Telegram exports and generated conversion results
+result*.json
+ChatExport_*/
+exports/
+data/
+output/
+out/
+*_part_*.md
+*.zip
+
+# Test artifacts and temporary files
+.tmp-ui-check/
+coverage/
+.nyc_output/
+*.log
+*.tmp
+
+# Local environment and editor settings
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini

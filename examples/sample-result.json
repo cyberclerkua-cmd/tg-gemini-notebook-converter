@@ -1,0 +1,122 @@
+{
+  "name": "Пример чата",
+  "type": "personal_chat",
+  "id": 123456789,
+  "messages": [
+    {
+      "id": 1,
+      "type": "message",
+      "date": "2023-04-10T09:00:00",
+      "from": "Алиса Иванова",
+      "from_id": "user1001",
+      "text": "Привет! Это демонстрационный экспорт Telegram.",
+      "reply_to_message_id": null
+    },
+    {
+      "id": 2,
+      "type": "message",
+      "date": "2023-04-10T09:01:30",
+      "from": "Борис Петров",
+      "from_id": "user1002",
+      "text": [
+        "Документация лежит ",
+        {
+          "type": "link",
+          "text": "здесь"
+        }
+      ],
+      "reply_to_message_id": 1
+    },
+    {
+      "id": 3,
+      "type": "service",
+      "date": "2023-04-10T09:02:00",
+      "actor": "Алиса Иванова",
+      "actor_id": "user1001",
+      "action": "create_group",
+      "title": "Пример чата",
+      "members": ["Алиса Иванова", "Борис Петров"],
+      "text": "",
+      "text_entities": []
+    },
+    {
+      "id": 4,
+      "type": "message",
+      "date": "2023-04-10T09:05:00",
+      "from": "Алиса Иванова",
+      "from_id": "user1001",
+      "text": "Когда собираемся?",
+      "reactions": [
+        { "emoji": "👍", "count": 3 },
+        { "emoji": "🎉", "count": 1 }
+      ],
+      "reply_to_message_id": null
+    },
+    {
+      "id": 5,
+      "type": "message",
+      "date": "2023-04-10T09:07:00",
+      "from": "Борис Петров",
+      "from_id": "user1002",
+      "text": "Вот варианты:",
+      "poll": {
+        "id": "poll1",
+        "question": "Когда собираемся?",
+        "total_voters": 4,
+        "answers": [
+          { "text": "Пятница", "voters": 3 },
+          { "text": "Суббота", "voters": 1 }
+        ]
+      },
+      "reply_to_message_id": null
+    },
+    {
+      "id": 6,
+      "type": "message",
+      "date": "2023-04-10T09:10:00",
+      "from": "Вера Сидорова",
+      "from_id": "user1003",
+      "text": "Ссылка на статью из другого канала",
+      "forwarded_from": "Технологический канал"
+    },
+    {
+      "id": 7,
+      "type": "message",
+      "date": "2023-04-10T09:12:00",
+      "from": "Алиса Иванова",
+      "from_id": "user1001",
+      "text": "Беру пятницу 👍",
+      "reactions": [
+        { "emoji": "👍", "count": 2 }
+      ],
+      "reply_to_message_id": 5
+    },
+    {
+      "id": 8,
+      "type": "message",
+      "date": "2023-04-10T09:15:00",
+      "from": "Борис Петров",
+      "from_id": "user1002",
+      "text": "Договорились. Текст в этом сообщении состоит из нескольких слов, чтобы конвертер корректно считал объём частей при разбивке на файлы.",
+      "reply_to_message_id": null
+    },
+    {
+      "id": 9,
+      "type": "message",
+      "date": "2023-04-10T09:18:00",
+      "from": "Аноним",
+      "from_id": "user1004",
+      "text": "Сообщение без автора",
+      "reply_to_message_id": null
+    },
+    {
+      "id": 10,
+      "type": "message",
+      "date": "2023-04-10T09:20:00",
+      "from": "Алиса Иванова",
+      "from_id": "user1001",
+      "text": "",
+      "reply_to_message_id": null
+    }
+  ]
+}
