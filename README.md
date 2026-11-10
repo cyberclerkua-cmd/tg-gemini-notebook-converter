@@ -214,7 +214,4 @@ tg-notebooklm-converter/
 
 ## Благодарности и лицензия
 
-Идея и формат вывода основаны на сервисе [tg-history-convert.vercel.app](https://tg-history-convert.vercel.app/)
-автора [@AI_Handler](https://t.me/AI_Handler). В этом репозитории реализован локальный вариант конвертера.
-
 Лицензия — [MIT](LICENSE).
