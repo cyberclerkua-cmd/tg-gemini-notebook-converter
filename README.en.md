@@ -177,7 +177,4 @@ Repository metadata and publication instructions are in [docs/PUBLISHING.md](doc
 
 ## Credits and license
 
-The idea and output format are based on [tg-history-convert.vercel.app](https://tg-history-convert.vercel.app/)
-by [@AI_Handler](https://t.me/AI_Handler). This repository provides a local implementation.
-
 Licensed under [MIT](LICENSE).
