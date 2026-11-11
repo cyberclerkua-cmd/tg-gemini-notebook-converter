@@ -2,22 +2,22 @@
 
 ## Оформление репозитория
 
-**Название:** `tg-notebooklm-converter`
+**Название:** `tg-gemini-notebook-converter`
 
-**Репозиторий:** https://github.com/cyberclerkua-cmd/tg-notebooklm-converter
+**Репозиторий:** https://github.com/cyberclerkua-cmd/tg-gemini-notebook-converter
 
-**Релизы:** https://github.com/cyberclerkua-cmd/tg-notebooklm-converter/releases
+**Релизы:** https://github.com/cyberclerkua-cmd/tg-gemini-notebook-converter/releases
 
 **Description / About (английский):**
 
 ```text
-Offline Telegram JSON to Markdown converter for NotebookLM / Gemini Notebook. Browser UI, CLI, word-based splitting and ZIP export. Zero runtime dependencies.
+Offline Telegram JSON to Markdown converter for Gemini Notebook. Browser UI, CLI, word-based splitting and ZIP export. Zero runtime dependencies.
 ```
 
 **Описание на русском:**
 
 ```text
-Локальный конвертер экспорта Telegram в Markdown для NotebookLM / Gemini Notebook. Разбивка по словам, ZIP, браузерный интерфейс и CLI. Работает офлайн.
+Локальный конвертер экспорта Telegram в Markdown для Gemini Notebook. Разбивка по словам, ZIP, браузерный интерфейс и CLI. Работает офлайн.
 ```
 
 **Topics:**
@@ -66,7 +66,7 @@ git diff --cached
 Создайте коммит:
 
 ```bash
-git commit -m "Initial release: Telegram to NotebookLM converter"
+git commit -m "Initial release: Telegram to Gemini Notebook converter"
 ```
 
 ### 3. Создать репозиторий на GitHub
@@ -77,10 +77,10 @@ git commit -m "Initial release: Telegram to NotebookLM converter"
 
 ### 4. Загрузить код
 
-Команды для репозитория `cyberclerkua-cmd/tg-notebooklm-converter`:
+Команды для репозитория `cyberclerkua-cmd/tg-gemini-notebook-converter`:
 
 ```bash
-git remote add origin https://github.com/cyberclerkua-cmd/tg-notebooklm-converter.git
+git remote add origin https://github.com/cyberclerkua-cmd/tg-gemini-notebook-converter.git
 git push -u origin main
 ```
 
@@ -94,7 +94,7 @@ git push -u origin main
 на ветке `main` и использовать описание ниже.
 GitHub автоматически предложит исходники в ZIP и TAR.GZ; отдельная сборка приложения не требуется.
 
-**Заголовок:** `v1.0.0 — Telegram → NotebookLM / Gemini Notebook`
+**Заголовок:** `v1.0.0 — Telegram → Gemini Notebook`
 
 ```markdown
 Первый публичный выпуск локального конвертера экспорта Telegram в Markdown.
