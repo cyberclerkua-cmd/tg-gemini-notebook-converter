@@ -1,18 +1,18 @@
 {
-  "name": "tg-notebooklm-converter",
+  "name": "tg-gemini-notebook-converter",
   "version": "1.0.0",
-  "description": "Offline Telegram JSON to Markdown converter for NotebookLM / Gemini Notebook. Browser UI, CLI, word-based splitting and ZIP export.",
+  "description": "Offline Telegram JSON to Markdown converter for Gemini Notebook. Browser UI, CLI, word-based splitting and ZIP export.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cyberclerkua-cmd/tg-notebooklm-converter.git"
+    "url": "git+https://github.com/cyberclerkua-cmd/tg-gemini-notebook-converter.git"
   },
-  "homepage": "https://github.com/cyberclerkua-cmd/tg-notebooklm-converter#readme",
+  "homepage": "https://github.com/cyberclerkua-cmd/tg-gemini-notebook-converter#readme",
   "bugs": {
-    "url": "https://github.com/cyberclerkua-cmd/tg-notebooklm-converter/issues"
+    "url": "https://github.com/cyberclerkua-cmd/tg-gemini-notebook-converter/issues"
   },
   "keywords": [
     "telegram",
-    "notebooklm",
+    "notebook",
     "gemini",
     "markdown",
     "converter",
