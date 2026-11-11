@@ -12,7 +12,7 @@
 })(typeof globalThis !== 'undefined' ? globalThis : this, function () {
   var DICTIONARIES = {
     ru: {
-      'badge.text': 'Локальная обработка · без интернета',
+      'badge.text': 'Локальная обработка без интернета',
       'subtitle.before': 'Конвертируйте экспорт чата в',
       'subtitle.after': 'файлы для Google Gemini Notebook',
       'theme.aria': 'Сменить тему',
@@ -54,7 +54,7 @@
       'error.unknown': 'Произошла неизвестная ошибка'
     },
     en: {
-      'badge.text': 'Local processing · no internet',
+      'badge.text': 'Local processing without internet',
       'subtitle.before': 'Convert a chat export into',
       'subtitle.after': 'files for Google Gemini Notebook',
       'theme.aria': 'Switch theme',
@@ -96,7 +96,7 @@
       'error.unknown': 'An unknown error occurred'
     },
     uk: {
-      'badge.text': 'Локальна обробка · без інтернету',
+      'badge.text': 'Локальна обробка без інтернету',
       'subtitle.before': 'Конвертуйте експорт чату у',
       'subtitle.after': 'файли для Google Gemini Notebook',
       'theme.aria': 'Змінити тему',
