@@ -14,7 +14,7 @@
     ru: {
       'badge.text': 'Локальная обработка · без интернета',
       'subtitle.before': 'Конвертируйте экспорт чата в',
-      'subtitle.after': 'файлы для Google GeminiNotebook',
+      'subtitle.after': 'файлы для Google Gemini Notebook',
       'theme.aria': 'Сменить тему',
       'lang.aria': 'Сменить язык',
       'file.aria': 'Выберите файл result.json',
@@ -56,7 +56,7 @@
     en: {
       'badge.text': 'Local processing · no internet',
       'subtitle.before': 'Convert a chat export into',
-      'subtitle.after': 'files for Google GeminiNotebook',
+      'subtitle.after': 'files for Google Gemini Notebook',
       'theme.aria': 'Switch theme',
       'lang.aria': 'Switch language',
       'file.aria': 'Choose the result.json file',
@@ -98,7 +98,7 @@
     uk: {
       'badge.text': 'Локальна обробка · без інтернету',
       'subtitle.before': 'Конвертуйте експорт чату у',
-      'subtitle.after': 'файли для Google GeminiNotebook',
+      'subtitle.after': 'файли для Google Gemini Notebook',
       'theme.aria': 'Змінити тему',
       'lang.aria': 'Змінити мову',
       'file.aria': 'Оберіть файл result.json',
