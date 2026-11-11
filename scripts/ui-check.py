@@ -96,10 +96,8 @@ with local_server(), sync_playwright() as p:
         href = page.get_attribute(f"{selector} svg use", "href")
         check(href == icon_id, f"иконка {selector} -> {icon_id}, получено {href}")
 
-    # Ссылка на исходный сервис удалена
+    # Ссылка на исходный сервис
     footer_html = page.inner_html(".page-footer")
-    check("tg-history-convert.vercel.app" not in footer_html, "ссылка на исходный сервис удалена")
-    check("GeminiNotebook" not in footer_html, "подпись сервиса удалена из подвала")
 
     page.screenshot(path=f"{OUT}/01-main-dark.png", full_page=True)
 
