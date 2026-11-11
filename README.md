@@ -194,18 +194,18 @@ python scripts/ui-check.py
 ## Структура проекта
 
 ```text
-tg-notebooklm-converter/
-├── .github/workflows/ci.yml    проверки GitHub Actions
-├── bin/tg2md.js               CLI-конвертер
-├── docs/                     скриншоты и инструкция публикации
+tg-gemini-notebook-converter/
+├── .github/workflows/ci.yml     проверки GitHub Actions
+├── bin/tg2md.js                 CLI-конвертер
+├── docs/                        скриншоты и инструкция публикации
 ├── examples/sample-result.json  демонстрационный экспорт
-├── public/                   HTML, CSS и браузерное приложение
-├── scripts/                  дополнительная браузерная проверка
-├── src/core.js               общее ядро для Node.js и браузера
-├── src/zip.js                создание ZIP
-├── src/i18n.js               словари RU / EN / UK
-├── test/                     автоматические тесты
-├── server.js                 локальный статический сервер
+├── public/                      HTML, CSS и браузерное приложение
+├── scripts/                     дополнительная браузерная проверка
+├── src/core.js                  общее ядро для Node.js и браузера
+├── src/zip.js                   создание ZIP
+├── src/i18n.js                  словари RU / EN / UK
+├── test/                        автоматические тесты
+├── server.js                    локальный статический сервер
 └── package.json
 ```
 
