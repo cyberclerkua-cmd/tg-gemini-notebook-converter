@@ -1,6 +1,6 @@
 'use strict';
 /**
- * Ядро конвертера: экспорт Telegram (result.json) -> Markdown-файлы для Google GeminiNotebook.
+ * Ядро конвертера: экспорт Telegram (result.json) -> Markdown-файлы для Google Gemini Notebook.
  *
  * Модуль изоморфен: работает в Node (require) и в браузере (window.TGConverter).
  * Никаких зависимостей, никаких сетевых запросов — вся обработка локальная.
