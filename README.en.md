@@ -1,8 +1,8 @@
-# Telegram → NotebookLM / Gemini Notebook
+# Telegram → Gemini Notebook
 
 [Русский](README.md) · **English** · [Download a release](https://github.com/cyberclerkua-cmd/tg-notebooklm-converter/releases/latest)
 
-An offline converter that turns **Telegram chat exports (`result.json`) into Markdown sources for Google NotebookLM / Gemini Notebook**.
+An offline converter that turns **Telegram chat exports (`result.json`) into Markdown sources for Google Gemini Notebook**.
 It splits conversations by word count, preserves message context, and packages the results into a ZIP archive.
 Use it to prepare chats, groups, and channels for search, summaries, and analysis in a notebook.
 
@@ -73,10 +73,10 @@ The converter accepts **one chat per file**, with top-level `name` and `messages
 Full-account exports containing multiple chats and HTML exports are not supported directly.
 Media files are not required for text conversion.
 
-## Import into NotebookLM
+## Import into Gemini Notebook
 
 1. Extract the downloaded ZIP.
-2. Create or open a notebook in [NotebookLM / Gemini Notebook](https://notebook.google.com/).
+2. Create or open a notebook in [Gemini Notebook](https://notebook.google.com/).
 3. Choose **Add sources** and upload the generated **`.md` files**.
 4. Ask questions about the conversation, find decisions, and generate summaries.
 
