@@ -166,14 +166,21 @@ Repository metadata and publication instructions are in [docs/PUBLISHING.md](doc
 
 ## Project layout
 
-- `public/` — browser UI, styles, and application logic.
-- `src/core.js` — conversion logic shared by the browser and Node.js.
-- `src/zip.js` — dependency-free ZIP writer.
-- `src/i18n.js` — Russian, English, and Ukrainian dictionaries.
-- `bin/tg2md.js` — command-line converter.
-- `server.js` — local static server.
-- `examples/` — demonstration export.
-- `test/` and `scripts/` — automated tests and optional browser checks.
+```text
+tg-notebooklm-converter/
+├── .github/workflows/ci.yml     GitHub Actions inspections
+├── bin/tg2md.js                 CLI-converter
+├── docs/                        Screenshots and posting instructions
+├── examples/sample-result.json  Test export
+├── public/                      HTML, CSS and a browser-based applicationе
+├── scripts/                     Additional browser check
+├── src/core.js                  A shared core for Node.js and the browser
+├── src/zip.js                   ZIP creation
+├── src/i18n.js                  RU / EN / UK dictionaries
+├── test/                        Automated tests
+├── server.js                    Local static server
+└── package.json
+```
 
 ## Credits and license
 
