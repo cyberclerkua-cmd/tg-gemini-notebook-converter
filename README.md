@@ -1,8 +1,8 @@
-# Telegram → NotebookLM / Gemini Notebook
+# Telegram → Gemini Notebook
 
 **Русский** · [English](README.en.md) · [Скачать релиз](https://github.com/cyberclerkua-cmd/tg-notebooklm-converter/releases/latest)
 
-Локальный конвертер экспорта Telegram (`result.json`) в **Markdown для Google NotebookLM / Gemini Notebook**.
+Локальный конвертер экспорта Telegram (`result.json`) в **Markdown для Google Gemini Notebook**.
 Разбивает переписку на удобные части, сохраняет контекст сообщений и собирает результат в ZIP-архив.
 Подходит для подготовки истории чатов, групп и каналов к поиску, пересказу и анализу в блокноте.
 
@@ -75,10 +75,10 @@ node server.js --port 8080 --open
 Общий экспорт аккаунта с несколькими чатами и HTML-экспорт напрямую не поддерживаются.
 Медиафайлы для конвертации текста не требуются.
 
-## Как загрузить результат в NotebookLM
+## Как загрузить результат в GeminiNotebook
 
 1. Распакуйте скачанный ZIP.
-2. Откройте [NotebookLM / Gemini Notebook](https://notebook.google.com/) и создайте или выберите блокнот.
+2. Откройте [Gemini Notebook](https://notebook.google.com/) и создайте или выберите блокнот.
 3. Нажмите **«Добавить источники»** и загрузите полученные **`.md`-файлы**.
 4. Задавайте вопросы по переписке, ищите решения и договорённости, составляйте краткие пересказы.
 
