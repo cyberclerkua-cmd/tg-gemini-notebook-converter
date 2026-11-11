@@ -14,7 +14,7 @@ const core = require('../src/core');
 const { createZip } = require('../src/zip');
 
 const HELP = `
-Telegram → GeminiNotebook (локальная версия)
+Telegram → Gemini Notebook (локальная версия)
 
 Использование:
   node bin/tg2md.js <result.json> [опции]
